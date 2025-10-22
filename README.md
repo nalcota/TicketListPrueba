@@ -1,3 +1,7 @@
+Utilize docker para subir diferentes aplicaciones pero no pude con angular.
+
+
+
 CREATE TABLE Usuarios (
     Id INTEGER PRIMARY KEY AUTOINCREMENT,
     Username TEXT NOT NULL,
