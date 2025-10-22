@@ -1,6 +1,6 @@
 Utilize docker para subir diferentes aplicaciones pero no pude con angular.
 
-
+Dejo el script de la base de datos. 
 
 CREATE TABLE Usuarios (
     Id INTEGER PRIMARY KEY AUTOINCREMENT,
