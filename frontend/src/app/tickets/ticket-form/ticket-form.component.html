@@ -1,0 +1,47 @@
+<div class="tickets-container">
+  <h2>{{ ticketId ? 'Editar Ticket' : 'Nuevo Ticket' }}</h2>
+
+  <form [formGroup]="ticketForm" (ngSubmit)="submit()" class="ticket-form">
+
+    <div class="form-group">
+      <label>Título</label>
+      <input formControlName="titulo" />
+      <div class="error" *ngIf="ticketForm.get('titulo')?.invalid && ticketForm.get('titulo')?.touched">
+        El título es obligatorio
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Descripción</label>
+      <textarea formControlName="descripcion"></textarea>
+      <div class="error" *ngIf="ticketForm.get('descripcion')?.invalid && ticketForm.get('descripcion')?.touched">
+        La descripción es obligatoria
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Prioridad</label>
+      <select formControlName="prioridad">
+        <option value="Baja">Baja</option>
+        <option value="Media">Media</option>
+        <option value="Alta">Alta</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Estado</label>
+      <select formControlName="estado">
+        <option value="Nuevo">Nuevo</option>
+        <option value="En Progreso">En Progreso</option>
+        <option value="Resuelto">Resuelto</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Usuario Asignado</label>
+      <input formControlName="usuarioAsignado" />
+    </div>
+
+    <button type="submit" class="btn-primary">{{ ticketId ? 'Actualizar' : 'Crear' }}</button>
+  </form>
+</div>

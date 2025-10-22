@@ -1,0 +1,66 @@
+.tickets-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra horizontalmente */
+  padding: 20px;
+  margin: auto;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ticket-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+input, textarea, select {
+  padding: 6px;         /* un poco más compacto */
+  font-size: 13px;      /* tamaño más pequeño */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 300px;     /* ancho máximo menor */
+}
+
+textarea {
+  resize: vertical;
+  min-height: 50px;      /* más compacto */
+  max-width: 300px;      /* igual que inputs */
+}
+
+.error {
+  color: red;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+button.btn-primary {
+  padding: 8px 14px;
+  font-size: 14px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+button.btn-primary:hover {
+  background-color: #115293;
+}

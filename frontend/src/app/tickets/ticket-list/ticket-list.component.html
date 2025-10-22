@@ -1,0 +1,76 @@
+<div class="tickets-container">
+  <h2>Tickets</h2>
+
+  <div class="filters">
+    <mat-form-field appearance="fill">
+      <mat-label>Estado</mat-label>
+      <mat-select [(value)]="estadoFilter" (selectionChange)="loadTickets()">
+        <mat-option value="">Todos</mat-option>
+        <mat-option value="Nuevo">Nuevo</mat-option>
+        <mat-option value="En Progreso">En Progreso</mat-option>
+        <mat-option value="Resuelto">Resuelto</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Prioridad</mat-label>
+      <mat-select [(value)]="prioridadFilter" (selectionChange)="loadTickets()">
+        <mat-option value="">Todas</mat-option>
+        <mat-option value="Baja">Baja</mat-option>
+        <mat-option value="Media">Media</mat-option>
+        <mat-option value="Alta">Alta</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="goToNewTicket()">
+      Nuevo Ticket
+    </button>
+
+  </div>
+
+  <table mat-table [dataSource]="tickets" class="mat-elevation-z2 full-width-table">
+
+    <!-- Columnas -->
+    <ng-container matColumnDef="titulo">
+      <th mat-header-cell *matHeaderCellDef>Título</th>
+      <td mat-cell *matCellDef="let ticket">{{ ticket.titulo }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef>Descripción</th>
+      <td mat-cell *matCellDef="let ticket">{{ ticket.descripcion }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="prioridad">
+      <th mat-header-cell *matHeaderCellDef>Prioridad</th>
+      <td mat-cell *matCellDef="let ticket">{{ ticket.prioridad }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let ticket">{{ ticket.estado }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="usuarioAsignado">
+      <th mat-header-cell *matHeaderCellDef>Usuario Asignado</th>
+      <td mat-cell *matCellDef="let ticket">{{ ticket.usuarioAsignado || '-' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaCreacion">
+      <th mat-header-cell *matHeaderCellDef>Fecha Creación</th>
+      <td mat-cell *matCellDef="let ticket">{{ ticket.fechaCreacion | date:'short' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let ticket">
+        <button mat-button color="accent" (click)="editTicket(ticket)">Editar</button>
+        <button mat-button color="warn" (click)="deleteTicket(ticket.id!)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <!-- Header y Row -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -1,0 +1,14 @@
+.tickets-container {
+  padding: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.full-width-table {
+  width: 100%;
+}
